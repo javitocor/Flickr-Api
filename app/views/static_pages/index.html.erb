@@ -1,0 +1,11 @@
+<%= form_with scope: :flickr, url: root_path, method: :get, local: true do |f| %>
+    <%= f.label "User ID:" %>
+    <%= f.text_field :flickr_id, value: "", name: "id" %>
+    <%= f.submit "Search"%>
+<% end %>
+
+<% if @photos.any? %>
+    <% @photos.each do |photo| %>
+        <%= image_tag(photo.url_t) %>
+    <% end %>
+<% end %>
